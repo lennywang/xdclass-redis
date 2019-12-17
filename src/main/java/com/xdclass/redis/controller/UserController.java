@@ -18,7 +18,6 @@ public class UserController {
     @Resource
     private UserMapper userMapper;
 
-
     @ResponseBody
     @RequestMapping("/getUser")
     public User getUser(String id)
