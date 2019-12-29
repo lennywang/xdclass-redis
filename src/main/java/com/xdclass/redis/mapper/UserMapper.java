@@ -3,6 +3,8 @@ package com.xdclass.redis.mapper;
 import com.xdclass.redis.domain.User;
 import org.apache.ibatis.annotations.*;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
 
@@ -17,4 +19,9 @@ public interface UserMapper {
     )
     @Select("select id,user_name,image from sys_user where id=#{id}")
     User find(@Param("id")String id);
+
+    @Select("select id,user_name,image from sys_user")
+    @ResultMap(value = "userResult")
+    List<User> findList();
+
 }
